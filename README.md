@@ -10,7 +10,7 @@ for information how to create IAM role. <br>
 
 **How to use**
 1. Setup environment
-   1. Create virtual env and install requirement packages
+   - Create virtual env and install requirement packages
       ```
       python3 -m venv aws-env
       cd aws-env
@@ -20,7 +20,7 @@ for information how to create IAM role. <br>
    
 
 1. Configure AWS credential: 
-   1. Invoke credential configuration with AWS CLI and follow on screen instruction enter aws_access_key_id, aws_secret_access_key, region, output (json) <br>
+   - Invoke credential configuration with AWS CLI and follow on screen instruction enter aws_access_key_id, aws_secret_access_key, region, output (json) <br>
       ```
       aws configure
       AWS Access Key ID [None]:Your AWS Access Key
