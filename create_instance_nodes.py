@@ -2,6 +2,9 @@ import boto3
 ec2 = boto3.resource('ec2')
 
 # Script launch at instance 1st run
+# This is just demonstrate using userdata on instance start up the 1st time
+# you can build a custom image with all require packages for Kubernetes node
+# and only need to execute the join command
 userdata_script = """#!/bin/bash
 apt update -y
 apt install docker.io -y
