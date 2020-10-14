@@ -25,57 +25,57 @@ chmod +x /tmp/join_command.sh
 """
 # Create VMs
 vm = ec2.create_instances(
-  # Using Ubuntu 20.04 id
-	ImageId='ami-021809d9177640a20',
-	MinCount=1,
-  # Create 3 nodes
-	MaxCount=3,
-  # VM size
-	InstanceType='t3.2xlarge',
-	KeyName='aa-keypair',
-	SubnetId='subnet-0d8e386b',
-	UserData=userdata_script,
-  # IAM role with read access to S3
-	IamInstanceProfile={
+    # Using Ubuntu 20.04 id
+    ImageId='ami-021809d9177640a20',
+    MinCount=1,
+    # Create 3 nodes
+    MaxCount=3,
+    # VM size
+    InstanceType='t3.2xlarge',
+    KeyName='aa-keypair',
+    SubnetId='subnet-0d8e386b',
+    UserData=userdata_script,
+    # IAM role with read access to S3
+    IamInstanceProfile={
         'Name': 's3ReadOnly'
     },
-	SecurityGroupIds=[
-        	'sg-246d1350',
-		'sg-00a3d5e7cd9f5b937',
-		'sg-069323c622b6a15c7'
+    SecurityGroupIds=[
+        'sg-246d1350',
+	'sg-00a3d5e7cd9f5b937',
+	'sg-069323c622b6a15c7'
     ],
-	TagSpecifications=[
-		{
-			'ResourceType': 'instance',
-			'Tags': [
+    TagSpecifications=[
+        {
+	    'ResourceType': 'instance',
+	    'Tags': [
                 {
                     'Key': 'Owner',
                     'Value': 'Engineering'
                 },
-				{
-					'Key': 'Stack',
+		{
+		    'Key': 'Stack',
                     'Value': 'Dev'
-				},
-				{
-					'Key': 'Kubernetes',
-                    'Value': 'Node'
-				},
-            ]
 		},
-	]
+		{
+		    'Key': 'Kubernetes',
+                    'Value': 'Node'
+		},
+            ]
+	},
+    ]
 )
 for instance in vm:
-  # Disable source and destination check for container overlay network (Weave, Flannel...), you don't need this setting if you use AWS PVC-CNI 
-	response = instance.modify_attribute(
+    # Disable source and destination check for container overlay network (Weave, Flannel...), you don't need this setting if you use AWS PVC-CNI 
+    response = instance.modify_attribute(
         SourceDestCheck={
             'Value': False
-	    }
-	)
-  # Wait until instance running and print its ID and IP
-	instance.wait_until_running()
-	print(
-		' Instance is ready \n'
-		'   Instance ID: ' + instance.id + '\n'
-		'   Private IP: ' + instance.private_ip_address + '\n'
-		'-----------------------------------------'
-		)
+	}
+    )
+    # Wait until instance running and print its ID and IP
+    instance.wait_until_running()
+    print(
+	' Instance is ready \n'
+	'   Instance ID: ' + instance.id + '\n'
+	'   Private IP: ' + instance.private_ip_address + '\n'
+	'-----------------------------------------'
+    )
