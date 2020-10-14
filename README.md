@@ -28,5 +28,5 @@ for information how to create IAM role. <br>
       Default region name [None]: us-east-1
       Default output format [None]: json
       ```
-1. To run script in your virtual env run:
+1. To run script in your virtual env run: <br>
       ```python3 create_instance_nodes.py```
