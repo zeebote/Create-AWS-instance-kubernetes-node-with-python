@@ -15,7 +15,8 @@ apt install -y kubelet kubeadm kubectl
 apt install -y awscli
 sysctl -w net.ipv4.ip_forward=1
 sed -i 's/net.ipv4.ip_forward=0/net.ipv4.ip_forward=1/Ig' /etc/sysctl.conf
-aws s3 cp s3://aa-script/join_command.sh /tmp/
+# replace this with your s3 bucket
+aws s3 cp s3://your-bucket/join_command.sh /tmp/
 chmod +x /tmp/join_command.sh
 /tmp/join_command.sh 
 """
