@@ -1,8 +1,8 @@
 # Create AWS instances kubernetes node with python
 This script use to create EC2 instances add add them into existing Kubernetes cluster using Python.<br>
-**Requirement:**
+**Requirements:**
 1. AWS CLI - Please follow this [link](https://aws.amazon.com/cli/) for installation and information about AWS CLI
-1. AWS SDK for Python (boto3) - Please follow this [link](https://aws.amazon.com/sdk-for-python/) for installtion and information about AWS SDK for Python
+1. AWS SDK for Python (boto3) - Please follow this [link](https://aws.amazon.com/sdk-for-python/) for installation and information about AWS SDK for Python
 1. AWS account with access key to your EC2 - You can use an existing account or create a new one with AWS IAM console then go to manage access key and generate 
 a new key. This account must have IAM role which have minimum policy to create instances in EC2 and attach IAM role to instance. You also need a 
 role that has read only policy to S3 for the new create instance. Please follow this [link](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html)
