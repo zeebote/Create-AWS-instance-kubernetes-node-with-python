@@ -29,4 +29,30 @@ for information how to create IAM role. <br>
       Default output format [None]: json
       ```
 1. To run script in your virtual env run: <br>
-      ```python3 create_instance_nodes.py```
+      `python3 create_instance_nodes.py `
+1. You should see the newly create instances info <br>       
+      ```
+      Instance is ready 
+      Instance ID: i-0b9a858234adab63a
+      Private IP: 172.31.25.79
+   -----------------------------------------
+      Instance is ready 
+      Instance ID: i-0174d153868a58e8b
+      Private IP: 172.31.29.187
+   -----------------------------------------
+      Instance is ready 
+      Instance ID: i-011617f0e79c33a8f
+      Private IP: 172.31.23.94
+   -----------------------------------------
+      ```
+ 1. From your Kubernetes master, check if new nodes show up and ready <br>
+     ```
+     ubuntu@ip-172-31-30-106:~$ kubectl get node
+      NAME               STATUS   ROLES    AGE     VERSION
+      ip-172-31-22-170   Ready    <none>   2d1h    v1.19.2
+      ip-172-31-23-94    Ready    <none>   5m42s   v1.19.3
+      ip-172-31-25-79    Ready    <none>   5m37s   v1.19.3
+      ip-172-31-29-187   Ready    <none>   5m19s   v1.19.3
+      ip-172-31-30-106   Ready    master   2d11h   v1.19.2
+     ```
+        
