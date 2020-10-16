@@ -1,5 +1,5 @@
 # Create AWS instances kubernetes node with python
-This script use to create EC2 instances add add them into existing Kubernetes cluster using Python.<br>
+This script use to create EC2 instances then add them into existing Kubernetes cluster using Python.<br>
 **Requirements:**
 1. AWS CLI - Please follow this [link](https://aws.amazon.com/cli/) for installation and information about AWS CLI
 1. AWS SDK for Python (boto3) - Please follow this [link](https://aws.amazon.com/sdk-for-python/) for installation and information about AWS SDK for Python
