@@ -32,7 +32,8 @@ vm = ec2.create_instances(
     MaxCount=3,
     # VM size
     InstanceType='t3.2xlarge',
-    KeyName='aa-keypair',
+    # key pair use for sign in to VM
+    KeyName='your key pair name',
     SubnetId='subnet-0d8e386b',
     UserData=userdata_script,
     # IAM role with read access to S3
@@ -40,9 +41,9 @@ vm = ec2.create_instances(
         'Name': 's3ReadOnly'
     },
     SecurityGroupIds=[
-        'sg-246d1350',
-	'sg-00a3d5e7cd9f5b937',
-	'sg-069323c622b6a15c7'
+        'sg-246d135000',
+	'sg-00a3d5e7cd9f5b9437',
+	'sg-069323c622b6a315c7'
     ],
     TagSpecifications=[
         {
